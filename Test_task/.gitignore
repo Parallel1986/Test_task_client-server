@@ -3,6 +3,7 @@
 
 ../build-Test_task-Desktop-Debug/
 build-Test_task-Desktop-Debug/
+CMakeLists.txt.user
 *~
 *.autosave
 *.a
