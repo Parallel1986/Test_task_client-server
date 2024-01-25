@@ -13,13 +13,11 @@
 class ClientService{
 public:
     ClientService(ClientThreadInfo* info);
-    ~ClientService();
     bool GetMessage();
     void PutMessageToLog();
 private:
     ClientThreadInfo* thread_info;
     std::string message;
-
 };
 
 #endif

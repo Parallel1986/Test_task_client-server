@@ -20,7 +20,6 @@ int main(int argC, char** argV)
         client.CloseConnection();
         client.WaitDelay();
     }
-
-
+    
     return 0;
 }

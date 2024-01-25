@@ -3,12 +3,11 @@
 enum {
     BUFFER_SIZE = 40
 };
+
 ClientService::ClientService(ClientThreadInfo* info){
     thread_info = info;
 }
-ClientService::~ClientService(){
 
-}
 bool ClientService::GetMessage(){
     char buf[BUFFER_SIZE];
     ssize_t bytes_read;

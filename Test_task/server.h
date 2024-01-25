@@ -20,16 +20,12 @@ struct ClientThreadInfo{
 class Server{
 public:
     Server(unsigned short socket_number, std::mutex* file_mutex);
-    ~Server();
     bool CreateSocket();
     bool ConnectToSocket();
     void StartListenToSocket();
     void AcceptConnection();
     void WorkWithClient();
     bool LogMessage(std::string message);
-    std::mutex* GetMutex();
-    sockaddr_in GetClientAddress();
-
 
 private:
     std::mutex* file_mutex;
@@ -37,10 +33,7 @@ private:
     int client_socket;
     sockaddr_in addres;
     sockaddr_in incoming_addres;
-    std::vector<pthread_t> thread_list;
 };
-
-
 
 void* ClientThread(void* info);
 

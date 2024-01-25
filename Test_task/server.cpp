@@ -12,10 +12,6 @@ Server::Server(unsigned short socket_number,std::mutex* file_mutex){
     this->file_mutex = file_mutex;
 }
 
-Server::~Server(){
-
-}
-
 bool Server::ConnectToSocket(){
     if(bind(listen_socket, (struct sockaddr *)&addres,sizeof(addres)) == -1){
         std::cerr << "Error while trying to bind socket\n";
@@ -55,12 +51,6 @@ bool Server::LogMessage(std::string message){
     }
     return true;
 }
-std::mutex* Server::GetMutex(){
-    return file_mutex;
-}
-sockaddr_in Server::GetClientAddress(){
-    return incoming_addres;
-}
 
 void Server::WorkWithClient(){
     ClientThreadInfo* info = new ClientThreadInfo;
@@ -71,7 +61,6 @@ void Server::WorkWithClient(){
 
     pthread_t thread_id;
     if (pthread_create(&thread_id,NULL,*ClientThread,info)==0){
-        thread_list.push_back(thread_id);
         pthread_detach(thread_id);
     }
     else{
